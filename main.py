@@ -23,15 +23,18 @@ def run_bot(ticker_pair, timeframe, quantity):
     apply_technical_indicators(dataframe)
 
     # Find buy signals
-    inst = Signals(dataframe, 25)
-    inst.decide()
+    # while True:
+    #     inst = Signals(dataframe, 25)
+    #     inst.decide()
+    #     time.sleep(2)
+
     # print(dataframe[dataframe.Buy == 1])
 
     # Run Strategy to find close price for current trade
     # Does not actually trade anything
     while True:
         strategy(ticker_pair, quantity)
-        time.sleep(1)
+        time.sleep(2)
 
 
 if __name__ == '__main__':
